@@ -7,8 +7,8 @@ use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/users')]
-class UserController extends AbstractController
+#[Route('/api/users')]
+class UserAPIController extends AbstractController
 {
 
     #[Route('', methods:['GET'])]
@@ -19,7 +19,7 @@ class UserController extends AbstractController
         return $this->json($users);
 
     }
-    #[Route('/{id<\d+>}')]
+    #[Route('/{id<\d+>}', methods:['GET'])]
    public function get(int $id, UserRepository $userRepository){
 
         $user = $userRepository->find($id);
