@@ -5,11 +5,12 @@ namespace App\Model;
 class User
 {
     public function __construct(
-        private int $id,
+        private int    $id,
         private string $name,
         private string $email,
-        private string $status
-    ){
+        private UserStatusEnum $status
+    )
+    {
 
     }
 
@@ -22,14 +23,6 @@ class User
     }
 
     /**
-     * @param string $name
-     */
-    public function setName(string $name): void
-    {
-        $this->name = $name;
-    }
-
-    /**
      * @return string
      */
     public function getEmail(): string
@@ -37,28 +30,18 @@ class User
         return $this->email;
     }
 
-    /**
-     * @param string $email
-     */
-    public function setEmail(string $email): void
-    {
-        $this->email = $email;
-    }
 
     /**
-     * @return string
+     * @return UserStatusEnum
      */
-    public function getStatus(): string
+    public function getStatus(): UserStatusEnum
     {
         return $this->status;
     }
 
-    /**
-     * @param string $status
-     */
-    public function setStatus(string $status): void
+    public function getStatusString(): string
     {
-        $this->status = $status;
+        return $this->status->value;
     }
 
     /**
@@ -67,13 +50,5 @@ class User
     public function getId(): int
     {
         return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId(int $id): void
-    {
-        $this->id = $id;
     }
 }

@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class UserController extends AbstractController
 {
-    #[Route('/users/{id<\d+>}')]
+    #[Route('/users/{id<\d+>}', name: 'user_show')]
     public function show(int $id, UserRepository $userRepository){
 
         $user = $userRepository->find($id);

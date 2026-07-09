@@ -2,6 +2,7 @@
 namespace App\Repository;
 
 use App\Model\User;
+use App\Model\UserStatusEnum;
 use Psr\Log\LoggerInterface;
 
 class UserRepository
@@ -14,8 +15,8 @@ class UserRepository
     {
         $this->logger->info('Fetching all users');
         return [
-            new User(1, 'John Doe', 'john.doe@example.com', 'active'),
-            new User(2, 'Jane Doe', 'jane.doe@example.com', 'inactive'),
+            new User(1, 'John Doe', 'john.doe@example.com', UserStatusEnum::ACTIVE),
+            new User(2, 'Jane Doe', 'jane.doe@example.com', UserStatusEnum::INACTIVE),
         ];
     }
 
